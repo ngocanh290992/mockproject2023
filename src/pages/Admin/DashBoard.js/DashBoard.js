@@ -1,21 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const DashBoard = () => {
   return (
     <>
-      {/* Page Heading */}
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a
+        <Link
           href="#"
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
           <i className="fas fa-download fa-sm text-white-50" /> Generate Report
-        </a>
+        </Link>
       </div>
-      {/* Content Row */}
+
       <div className="row">
-        {/* Earnings (Monthly) Card Example */}
         <div className="col-xl-3 col-md-6 mb-4">
           <div className="card border-left-primary shadow h-100 py-2">
             <div className="card-body">
@@ -35,7 +34,7 @@ export const DashBoard = () => {
             </div>
           </div>
         </div>
-        {/* Earnings (Monthly) Card Example */}
+
         <div className="col-xl-3 col-md-6 mb-4">
           <div className="card border-left-success shadow h-100 py-2">
             <div className="card-body">
@@ -55,7 +54,7 @@ export const DashBoard = () => {
             </div>
           </div>
         </div>
-        {/* Earnings (Monthly) Card Example */}
+
         <div className="col-xl-3 col-md-6 mb-4">
           <div className="card border-left-info shadow h-100 py-2">
             <div className="card-body">
@@ -91,7 +90,7 @@ export const DashBoard = () => {
             </div>
           </div>
         </div>
-        {/* Pending Requests Card Example */}
+
         <div className="col-xl-3 col-md-6 mb-4">
           <div className="card border-left-warning shadow h-100 py-2">
             <div className="card-body">
@@ -112,18 +111,16 @@ export const DashBoard = () => {
           </div>
         </div>
       </div>
-      {/* Content Row */}
+
       <div className="row">
-        {/* Area Chart */}
         <div className="col-xl-8 col-lg-7">
           <div className="card shadow mb-4">
-            {/* Card Header - Dropdown */}
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 className="m-0 font-weight-bold text-primary">
                 Earnings Overview
               </h6>
               <div className="dropdown no-arrow">
-                <a
+                <Link
                   className="dropdown-toggle"
                   href="#"
                   role="button"
@@ -133,26 +130,25 @@ export const DashBoard = () => {
                   aria-expanded="false"
                 >
                   <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400" />
-                </a>
+                </Link>
                 <div
                   className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                   aria-labelledby="dropdownMenuLink"
                 >
                   <div className="dropdown-header">Dropdown Header:</div>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" href="#">
                     Action
-                  </a>
-                  <a className="dropdown-item" href="#">
+                  </Link>
+                  <Link className="dropdown-item" href="#">
                     Another action
-                  </a>
+                  </Link>
                   <div className="dropdown-divider" />
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" href="#">
                     Something else here
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
-            {/* Card Body */}
             <div className="card-body">
               <div className="chart-area">
                 <canvas id="myAreaChart" />
@@ -160,16 +156,15 @@ export const DashBoard = () => {
             </div>
           </div>
         </div>
-        {/* Pie Chart */}
+
         <div className="col-xl-4 col-lg-5">
           <div className="card shadow mb-4">
-            {/* Card Header - Dropdown */}
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 className="m-0 font-weight-bold text-primary">
                 Revenue Sources
               </h6>
               <div className="dropdown no-arrow">
-                <a
+                <Link
                   className="dropdown-toggle"
                   href="#"
                   role="button"
@@ -179,26 +174,25 @@ export const DashBoard = () => {
                   aria-expanded="false"
                 >
                   <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400" />
-                </a>
+                </Link>
                 <div
                   className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                   aria-labelledby="dropdownMenuLink"
                 >
                   <div className="dropdown-header">Dropdown Header:</div>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" href="#">
                     Action
-                  </a>
-                  <a className="dropdown-item" href="#">
+                  </Link>
+                  <Link className="dropdown-item" href="#">
                     Another action
-                  </a>
+                  </Link>
                   <div className="dropdown-divider" />
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" href="#">
                     Something else here
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
-            {/* Card Body */}
             <div className="card-body">
               <div className="chart-pie pt-4 pb-2">
                 <canvas id="myPieChart" />
@@ -218,11 +212,9 @@ export const DashBoard = () => {
           </div>
         </div>
       </div>
-      {/* Content Row */}
+
       <div className="row">
-        {/* Content Column */}
         <div className="col-lg-6 mb-4">
-          {/* Project Card Example */}
           <div className="card shadow mb-4">
             <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-primary">Projects</h6>
@@ -363,8 +355,8 @@ export const DashBoard = () => {
             </div>
           </div>
         </div>
+
         <div className="col-lg-6 mb-4">
-          {/* Illustrations */}
           <div className="card shadow mb-4">
             <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-primary">
@@ -382,18 +374,17 @@ export const DashBoard = () => {
               </div>
               <p>
                 Add some quality, svg illustrations to your project courtesy of{" "}
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">
+                <Link target="_blank" rel="nofollow" href="https://undraw.co/">
                   unDraw
-                </a>
+                </Link>
                 , a constantly updated collection of beautiful svg images that
                 you can use completely free and without attribution!
               </p>
-              <a target="_blank" rel="nofollow" href="https://undraw.co/">
+              <Link target="_blank" rel="nofollow" href="https://undraw.co/">
                 Browse Illustrations on unDraw →
-              </a>
+              </Link>
             </div>
           </div>
-          {/* Approach */}
           <div className="card shadow mb-4">
             <div className="card-header py-3">
               <h6 className="m-0 font-weight-bold text-primary">

@@ -1,15 +1,11 @@
 import React from "react";
 import "./Table.css";
-import { FormCreateEdit } from "../../../components/Admin/FormCreateEdit";
+import * as CONST from "../../constant/constant.js";
 
-export const Table = (props) => {
-  const { title, list } = props;
-
+export const Table = ({ title, list }) => {
   const renderTheAd = () => {
     switch (title) {
-      case "Users":
-      case "List Admin":
-      case "List Customer": {
+      case "Users": {
         return (
           <tr>
             <th>Role</th>
@@ -23,9 +19,7 @@ export const Table = (props) => {
           </tr>
         );
       }
-      case "Products":
-      case "Collections":
-      case "Inventory": {
+      case "Products": {
         return (
           <tr>
             <th>Name</th>
@@ -55,9 +49,7 @@ export const Table = (props) => {
 
   const renderTBody = () => {
     switch (title) {
-      case "Users":
-      case "List Admin":
-      case "List Customer": {
+      case "Users": {
         return list.map((item, index) => {
           return (
             <tr key={index}>
@@ -92,9 +84,7 @@ export const Table = (props) => {
           );
         });
       }
-      case "Products":
-      case "Collections":
-      case "Inventory": {
+      case "Products": {
         return list.map((item, index) => {
           return (
             <tr key={index}>
@@ -121,22 +111,24 @@ export const Table = (props) => {
         return <tr></tr>;
     }
   };
+
+  const handleAddUser = () => {};
+
   return (
     <>
       <div>
-        {/* Page Heading */}
         <div className="d-flex justify-content-between py-2">
           <h1 className="h3 mb-2 text-gray-800">{title}</h1>
-          <button className="btn btn-addNew">Add New</button>
+          <button 
+            className="btn btn-md btn-primary shadow-sm"
+            onClick={handleAddUser}
+          >{CONST.ADD_USER}</button>
         </div>
 
-        {/* <FormCreateEdit /> */}
-
-        {/* DataTales Example */}
         <div className="card shadow mb-4">
           <div className="card-body">
             <div className="py-3">
-              <form className="d-none d-sm-inline-block form-inline mr-auto  my-2 my-md-0 mw-100 w-100 navbar-search">
+              <form className="d-none d-sm-inline-block form-inline ml-auto  my-2 my-md-0 mw-50 w-50 navbar-search">
                 <div className="input-group w-100">
                   <input
                     type="text"
