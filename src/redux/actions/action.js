@@ -1,22 +1,44 @@
-// action là 1 object, có 2 trường là type và payload
-// export const addAction = {
-//   type: "ABC",
-//   payload: { id: 1 },
-// };
+import { fetchUserList } from '../../api';
+import * as TYPE from './type';
 
-// action creators => function
-// để thay thế cho action phía trên, viết gọn hơn, dùng cho được nhiều hơn, vì có dữ liệu truyền vào, có thể dùng nhiều chỗ
+export const fetchUserListAPI = () => {
+  return async (dispatch) => {
+    const res = await fetchUserList();
+    dispatch(getListUser(res));
+  };
+};
 
-export const actionIncre = (data) => {
+export const getListUser = (data) => {
   return {
-    type: "INCREMENT",
+    type: TYPE.FETCH_LIST_USER,
     payload: data,
   };
 };
 
-export const actionDec = (data) => {
+export const addUser = (data) => {
   return {
-    type: "DEC",
+    type: TYPE.ADD_USER,
+    payload: data,
+  };
+};
+
+export const updateUser = (data) => {
+  return {
+    type: TYPE.EDIT_USER,
+    payload: data,
+  };
+};
+
+export const showEditUser = (data) => {
+  return {
+    type: TYPE.SHOW_EDIT_USER,
+    payload: data,
+  };
+};
+
+export const deleteUser = (data) => {
+  return {
+    type: TYPE.DELETE_USER,
     payload: data,
   };
 };

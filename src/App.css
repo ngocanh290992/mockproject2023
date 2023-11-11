@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+.sidebar.toggled, .sidebar.accordionunToggled {
+  transition: .2s ease-in;
+}
+#content-wrapper {
+  padding-left: 224px;
+}
+@media only screen and (max-width: 765px) {
+  #content-wrapper {
+    padding-left: 104px;
+  }
+}
+#isShowAddModalUser {
+  z-index: 11111;
+}

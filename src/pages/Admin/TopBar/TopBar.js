@@ -1,40 +1,20 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const TopBar = () => {
   const [isShowProfile, setIsShowProfile] = useState(false);
-  const user = useSelector((state) => state.user);
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-      {/* Sidebar Toggle (Topbar) */}
       <button
         id="sidebarToggleTop"
         className="btn btn-link d-md-none rounded-circle mr-3"
       >
         <i className="fa fa-bars" />
       </button>
-      {/* Topbar Search */}
-      <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control bg-light border-0 small"
-            placeholder="Search for..."
-            aria-label="Search"
-            aria-describedby="basic-addon2"
-          />
-          <div className="input-group-append">
-            <button className="btn btn-primary" type="button">
-              <i className="fas fa-search fa-sm" />
-            </button>
-          </div>
-        </div>
-      </form>
-      {/* Topbar Navbar */}
+
       <ul className="navbar-nav ml-auto">
-        {/* Nav Item - Search Dropdown (Visible Only XS) */}
         <li className="nav-item dropdown no-arrow d-sm-none">
-          <a
+          <Link
             className="nav-link dropdown-toggle"
             href="#"
             id="searchDropdown"
@@ -44,8 +24,7 @@ export const TopBar = () => {
             aria-expanded="false"
           >
             <i className="fas fa-search fa-fw" />
-          </a>
-          {/* Dropdown - Messages */}
+          </Link>
           <div
             className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
             aria-labelledby="searchDropdown"
@@ -68,9 +47,9 @@ export const TopBar = () => {
             </form>
           </div>
         </li>
-        {/* Nav Item - Alerts */}
+
         <li className="nav-item dropdown no-arrow mx-1">
-          <a
+          <Link
             className="nav-link dropdown-toggle"
             href="#"
             id="alertsDropdown"
@@ -80,16 +59,14 @@ export const TopBar = () => {
             aria-expanded="false"
           >
             <i className="fas fa-bell fa-fw" />
-            {/* Counter - Alerts */}
             <span className="badge badge-danger badge-counter">3+</span>
-          </a>
-          {/* Dropdown - Alerts */}
+          </Link>
           <div
             className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="alertsDropdown"
           >
             <h6 className="dropdown-header">Alerts Center</h6>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="mr-3">
                 <div className="icon-circle bg-primary">
                   <i className="fas fa-file-alt text-white" />
@@ -101,8 +78,8 @@ export const TopBar = () => {
                   A new monthly report is ready to download!
                 </span>
               </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            </Link>
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="mr-3">
                 <div className="icon-circle bg-success">
                   <i className="fas fa-donate text-white" />
@@ -112,8 +89,8 @@ export const TopBar = () => {
                 <div className="small text-gray-500">December 7, 2019</div>
                 $290.29 has been deposited into your account!
               </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            </Link>
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="mr-3">
                 <div className="icon-circle bg-warning">
                   <i className="fas fa-exclamation-triangle text-white" />
@@ -124,18 +101,18 @@ export const TopBar = () => {
                 Spending Alert: We've noticed unusually high spending for your
                 account.
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               className="dropdown-item text-center small text-gray-500"
               href="#"
             >
               Show All Alerts
-            </a>
+            </Link>
           </div>
         </li>
-        {/* Nav Item - Messages */}
+
         <li className="nav-item dropdown no-arrow mx-1">
-          <a
+          <Link
             className="nav-link dropdown-toggle"
             href="#"
             id="messagesDropdown"
@@ -147,14 +124,14 @@ export const TopBar = () => {
             <i className="fas fa-envelope fa-fw" />
             {/* Counter - Messages */}
             <span className="badge badge-danger badge-counter">7</span>
-          </a>
+          </Link>
           {/* Dropdown - Messages */}
           <div
             className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="messagesDropdown"
           >
             <h6 className="dropdown-header">Message Center</h6>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="dropdown-list-image mr-3">
                 <img
                   className="rounded-circle"
@@ -170,8 +147,8 @@ export const TopBar = () => {
                 </div>
                 <div className="small text-gray-500">Emily Fowler · 58m</div>
               </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            </Link>
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="dropdown-list-image mr-3">
                 <img
                   className="rounded-circle"
@@ -187,8 +164,8 @@ export const TopBar = () => {
                 </div>
                 <div className="small text-gray-500">Jae Chun · 1d</div>
               </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            </Link>
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="dropdown-list-image mr-3">
                 <img
                   className="rounded-circle"
@@ -204,8 +181,8 @@ export const TopBar = () => {
                 </div>
                 <div className="small text-gray-500">Morgan Alvarez · 2d</div>
               </div>
-            </a>
-            <a className="dropdown-item d-flex align-items-center" href="#">
+            </Link>
+            <Link className="dropdown-item d-flex align-items-center" href="#">
               <div className="dropdown-list-image mr-3">
                 <img
                   className="rounded-circle"
@@ -221,24 +198,25 @@ export const TopBar = () => {
                 </div>
                 <div className="small text-gray-500">Chicken the Dog · 2w</div>
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               className="dropdown-item text-center small text-gray-500"
               href="#"
             >
               Read More Messages
-            </a>
+            </Link>
           </div>
         </li>
-        <div className="topbar-divider d-none d-sm-block" />
-        {/* Nav Item - User Information */}
+
+        <span className="topbar-divider d-none d-sm-block" />
+
         <li
           className={
             "nav-item dropdown no-arrow" + (isShowProfile ? " show" : "")
           }
           onClick={() => setIsShowProfile(!isShowProfile)}
         >
-          <a
+          <Link
             className="nav-link dropdown-toggle"
             href="#"
             id="userDropdown"
@@ -248,11 +226,12 @@ export const TopBar = () => {
             aria-expanded={isShowProfile}
           >
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              {user.name}
+              Abc
             </span>
-            <img className="img-profile rounded-circle" src={user.avatar} />
-          </a>
-          {/* Dropdown - User Information */}
+            <img 
+              className="img-profile rounded-circle" 
+              src={`https://assets-prd.ignimgs.com/2022/11/11/avatar-the-last-airbender-movie-1668162712111.jpg`} alt="" />
+          </Link>
           <div
             className={
               "dropdown-menu dropdown-menu-right shadow animated--grow-in" +
@@ -260,20 +239,20 @@ export const TopBar = () => {
             }
             aria-labelledby="userDropdown"
           >
-            <a className="dropdown-item" href="#">
+            <Link className="dropdown-item" href="#">
               <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
               Profile
-            </a>
-            <a className="dropdown-item" href="#">
+            </Link>
+            <Link className="dropdown-item" href="#">
               <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" />
               Settings
-            </a>
-            <a className="dropdown-item" href="#">
+            </Link>
+            <Link className="dropdown-item" href="#">
               <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400" />
               Activity Log
-            </a>
+            </Link>
             <div className="dropdown-divider" />
-            <a
+            <Link
               className="dropdown-item"
               href="#"
               data-toggle="modal"
@@ -281,7 +260,7 @@ export const TopBar = () => {
             >
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
               Logout
-            </a>
+            </Link>
           </div>
         </li>
       </ul>
