@@ -3,19 +3,24 @@ import LeftMenu from "./LeftMenu/LeftMenu";
 import { TopBar } from "./TopBar/TopBar";
 import { routes } from "../../routes/Route";
 import { ModalAddUser } from '../../components/Modal/User/ModalAddUser';
-import { ModalProduct } from "../../components/Modal/Product/ModalProduct";
+import { ModalAddProduct } from "../../components/Modal/Product/ModalAddProduct";
 import { useDispatch } from "react-redux";
 import * as action from "../../redux/actions/action";
 
-export const Admin = () => {
+const Admin = () => {
   const dispatch = useDispatch();
 
   const onHandleAddUser = (e) => {
     dispatch(action.addUser(e));
   };
 
+  const onHandleAddProduct = (e) => {
+    dispatch(action.addProductAPI(e));
+  };
+
   useEffect(() => {
     dispatch(action.fetchUserListAPI());
+    dispatch(action.fetchProductListAPI());
   }, [dispatch]);
 
   return (
@@ -40,7 +45,14 @@ export const Admin = () => {
         type='isShowAddModalUser' 
         onHandleAddUser={onHandleAddUser} 
       />
-      <ModalProduct title='Add New Product' type='isShowAddModalProduct' />
+
+      <ModalAddProduct 
+        title='Add New Product' 
+        type='isShowAddModalProduct' 
+        onHandleAddProduct={onHandleAddProduct}
+      />
     </>
   );
 };
+
+export default Admin;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../../redux/actions/action";
-import { useSelector } from "react-redux";
 
 export const ModalEditUser = ({
   type,
@@ -15,7 +14,6 @@ export const ModalEditUser = ({
   const [passwordEdit, setPasswordEdit] = useState('');
 
   const handleEdit = () => {
-    console.log(user);
     const editUser = {
       id: user.id,
       name: nameEdit,

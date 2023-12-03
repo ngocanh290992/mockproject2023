@@ -26,7 +26,7 @@ export default function LeftMenu() {
           className="nav-link"
           to={"/users"}
         >
-          <i className="fa-regular fa-user icon-link"></i>
+          <span><i className="fa-regular fa-user icon-link"></i></span>
           <span>Users</span>
         </NavLink>
       </li>
@@ -36,20 +36,20 @@ export default function LeftMenu() {
           className="nav-link"
           to={"/products"}
         >
-          <i className="fa-solid fa-shirt"></i>
+          <span><i className="fa-solid fa-shirt"></i></span>
           <span>Products</span>
         </NavLink>
       </li>
 
-      {/* <li className="nav-item">
-        <Link
+      <li className="nav-item">
+        <NavLink
           className="nav-link"
           to={"/orders"}
         >
-          <i className="fa-solid fa-box-open"></i>
+          <span><i className="fa-solid fa-box-open"></i></span>
           <span>Orders</span>
-        </Link>
-      </li> */}
+        </NavLink>
+      </li>
 
       <hr className="sidebar-divider d-none d-md-block" />
     </ul>

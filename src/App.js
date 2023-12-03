@@ -1,6 +1,6 @@
 import "./App.css";
-import { Admin } from "./pages/Admin/Admin";
 import "./styles/sb-admin-2.min.css";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   return (

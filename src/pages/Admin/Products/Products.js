@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Products.css";
 import * as CONST from "../../constant/constant.js";
-import { ModalProduct } from '../../../components/Modal/Product/ModalProduct.js';
+import * as action from "../../../redux/actions/action.js";
+
+import { ModalEditProduct } from "../../../components/Modal/Product/ModalEditProduct.js";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Products = () => {
-  const handleAddProduct = () => {};
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const productList = state.productReducer.productList;
 
-  const handleEditProduct = (e) => {};
+  const handleEditProduct = (e) => {
+    dispatch(action.showEditProduct(e));
+  };
+
+  const handleDeleteProduct = (e) => {
+    dispatch(action.deleteProduct(e));
+  };
+
+  useEffect(() => {
+    console.log(productList);
+  });
 
   return (
     <>
@@ -17,7 +34,6 @@ export const Products = () => {
           type="button" 
           data-bs-toggle="modal" 
           data-bs-target="#isShowAddModalProduct"
-          onClick={handleAddProduct}
         >{CONST.ADD_PRODUCT}</button>
       </div>
 
@@ -29,7 +45,7 @@ export const Products = () => {
                 <input
                   type="text"
                   className="form-control bg-light border-0 small"
-                  placeholder="Search for..."
+                  placeholder="Search for name"
                   aria-label="Search"
                   aria-describedby="basic-addon2"
                 />
@@ -43,8 +59,7 @@ export const Products = () => {
           </div>
 
           <div className="table-responsive">
-            <table
-              className="table table-bordered"
+            <table className="table table-bordered"
               id="dataTable"
               width="100%"
               cellSpacing={0}
@@ -52,43 +67,60 @@ export const Products = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Name</th>
-                  <th>Image</th>
+                  <th>Title</th>
                   <th>Price</th>
                   <th>Description</th>
-                  <th>Create Date</th>
+                  <th>Image</th>
+                  <th>Created date</th>
                   <th style={{width: '120px'}}>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>
-                    <button 
-                      className="btn me-2" 
-                      data-bs-toggle="modal" 
-                      data-bs-target="#isShowEditModalProduct" 
-                      onClick={(e) => handleEditProduct(e)}
-                    >
-                      <i className="fa-solid fa-pencil text-success"></i>
-                    </button>
-                    <button className="btn ">
-                      <i className="fa-solid fa-trash text-danger"></i>
-                    </button>
-                  </td>
-                </tr>
+                {productList && productList.map((e, i) => (
+                  <tr key={i}>
+                    <td>{e.id}</td>
+                    <td>{e.title}</td>
+                    <td>${e.price}</td>
+                    <td>{e.description}</td>
+                    <td>
+                      <img 
+                        src={require(`../../../assets/products/${e.image}`)} 
+                        className="product-image"
+                        alt="" />
+                    </td>
+                    <td>{e.createDate}</td>
+                    <td>
+                      <button 
+                        className="btn me-2" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#isShowEditModalProduct" 
+                        onClick={() => handleEditProduct(e)}
+                      >
+                        <i className="fa-solid fa-pencil text-success"></i>
+                      </button>
+                      <button className="btn" onClick={() => handleDeleteProduct(e)}>
+                        <i className="fa-solid fa-trash text-danger"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
+
+          <nav aria-label="Page navigation example">
+            <ul className="pagination">
+              <li className="page-item"><Link className="page-link" href="#">Previous</Link></li>
+              <li className="page-item"><Link className="page-link" href="#">1</Link></li>
+              <li className="page-item"><Link className="page-link" href="#">2</Link></li>
+              <li className="page-item"><Link className="page-link" href="#">3</Link></li>
+              <li className="page-item"><Link className="page-link" href="#">Next</Link></li>
+            </ul>
+          </nav>
         </div>
       </div>
 
-      <ModalProduct title='Edit New Product' type='isShowEditModalProduct'/>
+      <ModalEditProduct title='Edit New Product' type='isShowEditModalProduct'/>
     </>
   );
 };

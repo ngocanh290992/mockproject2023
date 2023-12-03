@@ -6,7 +6,6 @@ import * as action from "../../../redux/actions/action.js";
 import { ModalEditUser } from '../../../components/Modal/User/ModalEditUser.js';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { formatDate } from "../../../utils/index.js";
 import { Link } from "react-router-dom";
 
 export const Users = () => {
@@ -15,7 +14,7 @@ export const Users = () => {
   const userList = state.userReducer.userList;
 
   const handleEditUser = (e) => {
-    dispatch(action.showEditUser(e))
+    dispatch(action.showEditUser(e));
   };
 
   const handleDeleteUser = (e) => {
@@ -35,6 +34,7 @@ export const Users = () => {
           data-bs-target="#isShowAddModalUser"
         >{CONST.ADD_USER}</button>
       </div>
+
       <div className="card shadow mb-4">
         <div className="card-body">
           <div className="py-3">
@@ -65,9 +65,10 @@ export const Users = () => {
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Username</th>
                   <th>Email</th>
-                  <th>Created date</th>
+                  <th>Phone</th>
                   <th style={{width: '120px'}}>Action</th>
                 </tr>
               </thead>
@@ -75,9 +76,12 @@ export const Users = () => {
                 {userList && userList.map((e, i) => (
                   <tr key={i}>
                     <td>{e.id}</td>
-                    <td>{e.name}</td>
+                    <td>
+                      <img src={e.image} alt="" className="product-image"/>
+                    </td>
+                    <td>{e.username}</td>
                     <td>{e.email}</td>
-                    <td>{formatDate(e.createdAt)}</td>
+                    <td>{e.phonenumber}</td>
                     <td>
                       <button 
                         className="btn me-2" 

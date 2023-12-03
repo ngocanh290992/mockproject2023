@@ -6,3 +6,12 @@
 .active {
   background-color: rgb(101, 134, 246);
 }
+.nav-item .nav-link {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+}
+.nav-item .nav-link span:first-child {
+  width: 20px;
+  text-align: center;
+}
